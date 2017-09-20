@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo Opening Bladz
+subl /Users/Blair/Desktop/flaskapp/app/forms.py /Users/Blair/Desktop/flaskapp/app/routes.py  open.txt /Users/Blair/Desktop/flaskapp/app/templates/about.html /Users/Blair/Desktop/flaskapp/app/templates/contact.html /Users/Blair/Desktop/flaskapp/app/templates/home.html /Users/Blair/Desktop/flaskapp/app/templates/layout.html
+
+cd /Users/Blair/Desktop/flaskapp
+./bin activate
+
+python /Users/Blair/Desktop/flaskapp/app/routes.py 

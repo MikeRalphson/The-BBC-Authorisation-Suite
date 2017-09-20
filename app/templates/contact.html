@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>CPS Access</h2>
+  <h3>Request Form</h3>
+ 
+  {% if success %}
+    <p>24/7 Ops have now received your request. We'll get back to you shortly. If you have any questions, you can e-mail us on digital.247operations@bbc.co.uk</p>
+    <p>----------------------------------------------</p>
+    <h2>Details of Your Request</h2>
+    <h3>Your Information</h3>
+    <p>Name: {{ name }}</p>
+    <p>E-Mail: {{ email }}</p>
+    <h3>CPS Access Information</h3>
+    <p>Full Name: {{ usersname }}</p>
+    <p>Username: {{ username }}</p>
+    <h3>If any of these details are incorrect, please contact the following e-mail address as soon as possible: digital.247operations@bbc.co.uk</h3>
+
+ 
+  {% else %}
+ 
+    {% for message in form.name.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+ 
+    {% for message in form.email.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.training.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+ 
+    {% for message in form.usersname.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.username.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+ 
+    {% for message in form.message.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+ 
+    <form action="{{ url_for('contact') }}" method=post>
+      {{ form.hidden_tag() }}
+ 
+      {{ form.name.label }}
+      {{ form.name }}
+ 
+      {{ form.email.label }}
+      {{ form.email }}
+
+      {{ form.training.label }}
+      <div class="training"> 
+        <input type="checkbox" value="1" id="{{ form.training }}
+        <label for="{{ form.training }}
+      </div>
+
+    <script src="dropdown.js"></script>
+
+	<ul class="navigation">
+  		<a class="main" href="#url">How Many Users To Add?</a>
+  		<li class="n1"><a href="#">1 User</a></li>
+  		<li class="n2"><a href="#">2 Users</a></li>
+  		<li class="n3"><a href="#">3 Users</a></li>
+  		<li class="n4"><a href="#">4 Users</a></li>
+  		<li class="n5"><a href="#">5 Users</a></li>
+	</ul>
+
+
+      {{ form.usersname.label }}
+      {{ form.usersname }}
+
+      {{ form.username.label }}
+      {{ form.username }}
+ 
+      {{ form.message.label }}
+      {{ form.message }}
+ 
+      {{ form.submit }}
+    </form>
+ 
+  {% endif %}
+{% endblock %}
