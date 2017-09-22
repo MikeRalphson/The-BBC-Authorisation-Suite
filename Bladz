@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+#Place a message to all
+echo Opening Bladz
+
+#Open the python scripts and the HTML pages running Bladz
+subl ~/Desktop/flaskapp/app/forms.py ~/Desktop/flaskapp/app/routes.py ~/Desktop/flaskapp/app/templates/about.html ~/Desktop/flaskapp/app/templates/contact.html ~/Desktop/flaskapp/app/templates/home.html ~/Desktop/flaskapp/app/templates/layout.html ~/Desktop/flaskapp/app/static/css/main.css ~/Desktop/Bladz
+
+#Activate the bin
+. ~/Desktop/flaskapp/bin/activate
+
+open http://localhost:5000
+
+#Activate routes.py to configure the local host
+python ~/Desktop/flaskapp/app/routes.py 
+
+
+
+
